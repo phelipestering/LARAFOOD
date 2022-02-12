@@ -14,11 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
+
+// ROTAS DE PLANOS
+
 Route::get('admin/plans',
             [PlanController::class, 'index'])
-            ->name('index');
+            ->name('plans.index');
 
+Route::get('admin/plans/create',
+            [PlanController::class, 'create'])
+            ->name('plans.create');
 
+Route::post('admin/plans/',
+            [PlanController::class, 'store'])
+            ->name('plans.store');
 
 Route::get('/', function () {
     return view('welcome');
