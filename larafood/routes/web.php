@@ -33,6 +33,8 @@ Route::post('admin/plans/', [PlanController::class, 'store'])
 
 Route::get('admin/plans/{url}', [PlanController::class, 'show'])->name('plans.show');
 
+Route::delete('admin/plans/{url}', [PlanController::class, 'delete'])->name('plans.delete');
+
 
 Route::get('/', function () {
     return view('welcome');
