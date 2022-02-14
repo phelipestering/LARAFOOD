@@ -35,6 +35,7 @@ Route::get('admin/plans/{url}', [PlanController::class, 'show'])->name('plans.sh
 
 Route::delete('admin/plans/{url}', [PlanController::class, 'delete'])->name('plans.delete');
 
+Route::any('admin/plans/search', [PlanController::class, 'search'])->name('plans.search');
 
 Route::get('/', function () {
     return view('welcome');
