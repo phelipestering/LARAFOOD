@@ -37,6 +37,13 @@ Route::delete('admin/plans/{url}', [PlanController::class, 'delete'])->name('pla
 
 Route::any('admin/plans/search', [PlanController::class, 'search'])->name('plans.search');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// BreadCumbs
+
+Route::get('admin', [PlanController::class, 'index'])->name('admin.index');
+
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
