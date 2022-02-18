@@ -16,7 +16,7 @@
                 </li>
 
                 <li>
-                    <strong>URL: </strong> {{ $plan->url }}
+                    <strong>URL: </strong> {{ $plan->id }}
                 </li>
 
                 <li>
@@ -28,7 +28,7 @@
                 </li>
             </ul>
 
-        <form action="{{ route('plans.delete', $plan->url) }}" method="POST">
+        <form action="{{ route('plans.delete', $plan->id) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">DELETAR O PLANO {{ $plan->name }}</button>

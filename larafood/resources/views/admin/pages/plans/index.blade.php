@@ -2,8 +2,10 @@
 
 @section('title', 'Planos')
 
+
+
 @section('content_header')
-    <h1>Planos<a href="{{ route('plans.create') }}" class="btn btn-dark">Adicionar</a></h1>
+    <h1>Planos<a href="{{ route('plans.create') }}" class="btn btn-dark"><i class="fa-regular fa-file-circle-plus"></i>Adicionar</a></h1>
 
     <ol class="breadcrumb">
         <li class="breadcrumb-item"> <a href= "{{ route('admin.index') }}"> Dashboard </a></li>
@@ -29,7 +31,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Preco</th>
-                        <th style="width:10px;">Acoes</th>
+                        <th width="300">Acoes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,8 +43,11 @@
                             <td>
                                 {{ number_format($plan->price, 2, ',', '.')  }}
                             </td>
-                            <td style="width:10px;">
-                                <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning">Ver Plano</a>
+                            <td style="width=10px;">
+
+                                <a href="{{ route('plans.edit', $plan->id) }}" class="btn btn-info">Editar Plano</a>
+
+                                <a href="{{ route('plans.show', $plan->id) }}" class="btn btn-warning">Ver Plano</a>
                             </td>
                         </tr>
                     @endforeach
@@ -67,8 +72,10 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <script src="https://kit.fontawesome.com/fee8180858.js" crossorigin="anonymous"></script>
 @stop
 
 @section('js')
     <script> console.log('Hi!'); </script>
+
 @stop

@@ -37,15 +37,15 @@ class PlanController extends Controller
     {
 
         $data = $request->all();
-        $data['url'] = Str::kebab($request->name);
+        $data['id'] = Str::kebab($request->name);
         $this->repository->create($data);
 
         return redirect()->route('plans.index');
     }
 
-    public function show($url)
+    public function show($id)
     {
-        $plan = $this->repository->where('url', $url)->first();
+        $plan = $this->repository->where('id', $id)->first();
 
         if(!$plan)
 
@@ -56,9 +56,9 @@ class PlanController extends Controller
         ]);
     }
 
-    public function delete($url)
+    public function delete($id)
     {
-        $plan = $this->repository->where('url', $url)->first();
+        $plan = $this->repository->where('id', $id)->first();
 
         if(!$plan)
 
@@ -80,4 +80,28 @@ class PlanController extends Controller
 
     }
 
+    public function edit($id)
+    {
+        $plan = $this->repository->where('id', $id)->first();
+
+        if(!$plan)
+
+            return redirect()->back();
+
+        return view('admin.pages.plans.edit', compact('plan'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $plan = $this->repository->where('id', $id)->first();
+
+        if(!$plan)
+
+            return redirect()->back();
+
+        $plan->update($request -> all());
+
+        return redirect()->route('plans.index');
+
+    }
 }

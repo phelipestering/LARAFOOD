@@ -9,7 +9,9 @@ class Plan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'url', 'price', 'description'];
+    protected $table = "plans";
+
+    protected $fillable = ['name', 'price', 'description'];
 
     public function search($filter = null)
     {

@@ -18,7 +18,10 @@ class PlanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            // 'url'=>$this->faker->url(),
+            'price'=>$this->faker->numberBetween(2000),
+            'description'=>$this->faker->text(),
         ];
     }
 }
