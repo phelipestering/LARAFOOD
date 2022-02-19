@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdatePlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 use illuminate\Pagination\Paginator;
@@ -33,7 +34,7 @@ class PlanController extends Controller
         return view('admin.pages.plans.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdatePlan $request)
     {
 
         $data = $request->all();
@@ -91,7 +92,7 @@ class PlanController extends Controller
         return view('admin.pages.plans.edit', compact('plan'));
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreUpdatePlan $request, $id)
     {
         $plan = $this->repository->where('id', $id)->first();
 

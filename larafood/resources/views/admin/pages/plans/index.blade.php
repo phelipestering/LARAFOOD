@@ -41,9 +41,9 @@
                                 {{ $plan->name }}
                             </td>
                             <td>
-                                {{ number_format($plan->price, 2, ',', '.')  }}
+                               R$ {{ number_format($plan->price, 2, ',', '.')  }}
                             </td>
-                            <td style="width=10px;">
+                            <td R$style="width=10px;">
 
                                 <a href="{{ route('plans.edit', $plan->id) }}" class="btn btn-info">Editar Plano</a>
 
