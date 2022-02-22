@@ -11,6 +11,11 @@ class Plan extends Model
 
     protected $table = "plans";
 
+    public function details()
+    {
+        return $this->hasMany(DetailPlan::class);
+    }
+
     protected $fillable = ['name', 'price', 'description'];
 
     public function search($filter = null)

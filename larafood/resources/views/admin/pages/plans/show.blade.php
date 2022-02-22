@@ -16,7 +16,7 @@
                 </li>
 
                 <li>
-                    <strong>URL: </strong> {{ $plan->id }}
+                    <strong>ID: </strong> {{ $plan->id }}
                 </li>
 
                 <li>

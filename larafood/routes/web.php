@@ -16,35 +16,35 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
+// @include('./planroutes.php');
 
 // ROTAS DE PLANOS
 
-Route::get('admin/plans',
-            [PlanController::class, 'index'])
-            ->name('plans.index');
+Route::prefix('admin')->group(function(){
 
-Route::get('admin/plans/create',
-            [PlanController::class, 'create'])
-            ->name('plans.create');
+    Route::get('plans',[PlanController::class, 'index'])->name('plans.index');
 
-Route::post('admin/plans/', [PlanController::class, 'store'])
-            ->name('plans.store');
+    Route::get('plans/create',[PlanController::class, 'create'])->name('plans.create');
 
-Route::get('admin/plans/{id}', [PlanController::class, 'show'])->name('plans.show');
+    Route::post('plans/', [PlanController::class, 'store'])->name('plans.store');
 
-Route::delete('admin/plans/{id}', [PlanController::class, 'delete'])->name('plans.delete');
+    Route::get('plans/{id}', [PlanController::class, 'show'])->name('plans.show');
 
-Route::any('admin/plans/search', [PlanController::class, 'search'])->name('plans.search');
+    Route::delete('plans/{id}', [PlanController::class, 'delete'])->name('plans.delete');
 
-Route::get('admin/plans/{id}/edit', [PlanController::class, 'edit'])->name('plans.edit');
+    Route::any('plans/search', [PlanController::class, 'search'])->name('plans.search');
 
-Route::put('admin/plans/{id}', [PlanController::class, 'update'])->name('plans.update');
+    Route::get('plans/{id}/edit', [PlanController::class, 'edit'])->name('plans.edit');
+
+    Route::put('plans/{id}', [PlanController::class, 'update'])->name('plans.update');
 
 
-// BreadCumbs
+    // BreadCumbs
 
-Route::get('admin', [PlanController::class, 'index'])->name('admin.index');
+    Route::get('/', [PlanController::class, 'index'])->name('admin.index');
+
+
+    });
 
 
 
