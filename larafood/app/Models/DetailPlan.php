@@ -9,7 +9,7 @@ class DetailPlan extends Model
 {
     use HasFactory;
 
-    protected $table = 'details_plan';
+    protected $table = 'detail_plans';
 
     public function plan()
     {

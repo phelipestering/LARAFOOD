@@ -16,7 +16,13 @@ class CreateDetailPlansTable extends Migration
         Schema::create('detail_plans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('plan_id');
             $table->timestamps();
+
+            $table->foreign('plan_id')
+                    ->references('id')
+                    ->on('plans')
+                    ->onDelete('cascade');
         });
     }
 

@@ -1,17 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Planos')
-
-
+@section('title', "Detalhe do Plano {$plan->name}")
 
 @section('content_header')
-    <h1>Planos<a href="{{ route('plans.create') }}" class="btn btn-dark"><i class="fa-solid fa-address-card"></i> Adicionar </a></h1>
 
     <ol class="breadcrumb">
         <li class="breadcrumb-item"> <a href= "{{ route('admin.index') }}"> Dashboard </a></li>
-        <li class="breadcrumb-item active"> <a href= "{{ route('plans.index') }}">Planos</a></li>
-    </ol>
+        <li class="breadcrumb-item"> <a href= "{{ route('plans.index') }}"> Planos </a></li>
+        <li class="breadcrumb-item"> <a href= "{{ route('plans.show', $plan->id) }}"> {{ $plan->name }} </a></li>
+        <li class="breadcrumb-item active"> <a href= "{{ route('details.plan.index', $plan->id) }}" class="active"> Detalhes </a></li>
 
+    </ol>
+    <h1>Detalhes do Plano {{ $plan->name }}<a href="{{ route('plans.create') }}" class="btn btn-dark"><i class="fa-solid fa-address-card"></i> Adicionar </a></h1>
 @stop
 
 
@@ -31,21 +31,20 @@
                     <tr>
                         <th>Nome</th>
                         <th>Preco</th>
-                        <th width="400">Acoes</th>
+                        <th width="300">Acoes</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($plans as $plan )
+                    @foreach ($details as $detail )
                         <tr>
                             <td>
-                                {{ $plan->name }}
+                                {{ $detail->name }}
                             </td>
-                            <td>
-                               R$ {{ number_format($plan->price, 2, ',', '.')  }}
-                            </td>
+
                             <td style="width=10px;">
-                                <a href="{{ route('details.plan.index', $plan->id) }}" class="btn btn-primary">Detalhes</a>
+
                                 <a href="{{ route('plans.edit', $plan->id) }}" class="btn btn-info">Editar Plano</a>
+
                                 <a href="{{ route('plans.show', $plan->id) }}" class="btn btn-warning">Ver Plano</a>
                             </td>
                         </tr>
@@ -58,11 +57,11 @@
 
         @if (isset($filters))
 
-            {!! $plans->appends($filters)->links() !!}
+            {!! $details->appends($filters)->links() !!}
 
         @else
 
-            {!! $plans->links() !!}
+            {!! $details->links() !!}
 
         @endif
 

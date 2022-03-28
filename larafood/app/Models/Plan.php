@@ -24,7 +24,7 @@ class Plan extends Model
                         ->orWhere('description', 'LIKE', "%{$filter}%")
                         ->paginate();
 
-                        return $results;
+        return $results;
     }
 }
 

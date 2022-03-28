@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,12 @@ Route::prefix('admin')->group(function(){
     // BreadCumbs
 
     Route::get('/', [PlanController::class, 'index'])->name('admin.index');
+
+    /**
+     * Details Routes
+     */
+
+    Route::get('plans/{id}/details', [DetailPlanController::class, 'index'])->name('details.plan.index');
 
 
     });
