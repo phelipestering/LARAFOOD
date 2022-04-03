@@ -28,13 +28,24 @@ class DetailPlanController extends Controller
         return view('admin.pages.plans.details.index', compact('plan', 'details'));
     }
 
-    public function create ()
+    public function create ($idPlan)
     {
-        return view('admin.pages.plans.details.create');
+        if (!$plan = $this-> plan->where('id', $idPlan)->first()){
+            return redirect()->back();
+        }
+        return view('admin.pages.plans.details.create', compact('plan'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $idPlan )
     {
-        dd($request->all());
+        if (!$plan = $this-> plan->where('id', $idPlan)->first()){
+            return redirect()->back();
+        }
+
+        $plan->details()->create($request->all());
+
+        return redirect()->route('details.plan.index', $plan->id);
+
+
     }
 }

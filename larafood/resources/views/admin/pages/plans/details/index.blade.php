@@ -11,7 +11,7 @@
         <li class="breadcrumb-item active"> <a href= "{{ route('details.plan.index', $plan->id) }}" class="active"> Detalhes </a></li>
 
     </ol>
-    <h1>Detalhes do Plano {{ $plan->name }}<a href="{{ route('plans.create') }}" class="btn btn-dark"><i class="fa-solid fa-address-card"></i> Adicionar </a></h1>
+    <h1>Detalhes do Plano {{ $plan->name }}<a href="{{ route('details.plan.create', $plan->id) }}" class="btn btn-dark"><i class="fa-solid fa-address-card"></i> Adicionar Novo Detalhe </a></h1>
 @stop
 
 
@@ -30,7 +30,6 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Preco</th>
                         <th width="300">Acoes</th>
                     </tr>
                 </thead>
