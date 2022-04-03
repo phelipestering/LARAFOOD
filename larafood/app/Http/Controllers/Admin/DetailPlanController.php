@@ -27,4 +27,14 @@ class DetailPlanController extends Controller
 
         return view('admin.pages.plans.details.index', compact('plan', 'details'));
     }
+
+    public function create ()
+    {
+        return view('admin.pages.plans.details.create');
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }
