@@ -42,7 +42,7 @@
 
                             <td style="width=10px;">
 
-                                <a href="{{ route('plans.edit', $plan->id) }}" class="btn btn-info">Editar Plano</a>
+                                <a href="{{ route('details.plan.edit', [$plan->id, $detail->id]) }}" class="btn btn-info">Editar Detalhe</a>
 
                                 <a href="{{ route('plans.show', $plan->id) }}" class="btn btn-warning">Ver Plano</a>
                             </td>
