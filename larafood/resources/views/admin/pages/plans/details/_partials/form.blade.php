@@ -1,3 +1,5 @@
+@include('admin.pages.plans.includes.errors')
+
 @csrf
 
 <div class="form-group">
