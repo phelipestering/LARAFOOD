@@ -50,7 +50,7 @@ class DetailPlanController extends Controller
 
     }
 
-    public function edit ( $idPlan, $idDetail)
+    public function edit( $idPlan, $idDetail)
     {
         $plan = $this-> plan->where('id', $idPlan)->first();
         $detail = $this->repository->find($idDetail);
@@ -75,6 +75,32 @@ class DetailPlanController extends Controller
 
         return redirect()->route('details.plan.index', $plan->id);
 
+    }
+
+    public function show ( $idPlan, $idDetail)
+    {
+        $plan = $this-> plan->where('id', $idPlan)->first();
+        $detail = $this->repository->find($idDetail);
+        if (!$plan || !$idDetail){
+            return redirect()->back();
+        }
+
+        return view('admin.pages.plans.details.show', compact('plan', 'detail'));
+    }
+
+    public function destroy($idPlan, $idDetail)
+    {
+        $plan = $this-> plan->where('id', $idPlan)->first();
+        $detail = $this->repository->find($idDetail);
+
+        if (!$plan || !$detail){
+            return redirect()->back();
+        }
+
+        $detail->delete();
+
+        return redirect()->route('details.plan.index', $plan->id)
+                            ->with('message', 'Registro Deletado com Sucesso');
 
     }
 }

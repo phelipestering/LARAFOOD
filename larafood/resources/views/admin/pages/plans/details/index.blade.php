@@ -26,6 +26,8 @@
         </div>
         <div class="card-body">
 
+            @include('admin.pages.plans.includes.errors')
+
             <table class="table table-condensed">
                 <thead>
                     <tr>
@@ -44,7 +46,7 @@
 
                                 <a href="{{ route('details.plan.edit', [$plan->id, $detail->id]) }}" class="btn btn-info">Editar Detalhe</a>
 
-                                <a href="{{ route('plans.show', $plan->id) }}" class="btn btn-warning">Ver Plano</a>
+                                <a href="{{ route('details.plan.show', [$plan->id, $detail->id]) }}" class="btn btn-warning">Ver Detalhe</a>
                             </td>
                         </tr>
                     @endforeach
