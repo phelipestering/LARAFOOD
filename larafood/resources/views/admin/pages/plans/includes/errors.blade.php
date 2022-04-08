@@ -1,5 +1,5 @@
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-warning">
         @foreach ($errors->all() as $error  )
         <p>{{ $error }}</p>
 
@@ -8,7 +8,13 @@
 @endif
 
 @if (session('message'))
-    <div class="alert alert-info">
+    <div class="alert alert-success">
         {{ session('message') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-warning">
+        {{ session('error') }}
     </div>
 @endif

@@ -28,6 +28,8 @@
                 </li>
             </ul>
 
+            @include('admin.pages.plans.includes.errors')
+            
         <form action="{{ route('plans.delete', $plan->id) }}" method="POST">
             @csrf
             @method('DELETE')

@@ -59,15 +59,23 @@ class PlanController extends Controller
 
     public function delete($id)
     {
-        $plan = $this->repository->where('id', $id)->first();
+        $plan = $this->repository
+                                ->where('id', $id)
+                                ->with('details')
+                                ->first();
 
         if(!$plan)
-
             return redirect()->back();
+
+        if ($plan->details->count() > 0 ) {
+            return redirect()
+                            ->back()
+                            ->with('error', 'Existem detalhes vinculados a este plano');
+        }
 
         $plan->delete();
 
-        return redirect()->route('plans.index');
+            return redirect()->route('plans.index');
     }
 
     public function search(Request $request)

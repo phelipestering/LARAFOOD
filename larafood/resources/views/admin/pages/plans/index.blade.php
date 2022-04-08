@@ -2,8 +2,6 @@
 
 @section('title', 'Planos')
 
-
-
 @section('content_header')
     <h1>Planos<a href="{{ route('plans.create') }}" class="btn btn-dark"><i class="fa-solid fa-address-card"></i> Adicionar </a></h1>
 
