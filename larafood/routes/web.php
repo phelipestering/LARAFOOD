@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Admin\ACL\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,12 @@ Route::prefix('admin')->group(function(){
     Route::get('plans/{id}/details/{idDetail}/edit', [DetailPlanController::class, 'edit'])->name('details.plan.edit');
     Route::get('plans/{id}/details/{idDetail}', [DetailPlanController::class, 'show'])->name('details.plan.show');
     Route::delete('plans/{id}/details/{idDetail}', [DetailPlanController::class, 'destroy'])->name('details.plan.destroy');
+
+    /**
+     * Profile Routes
+     */
+    Route::any('profiles/search', [ProfileController::class, 'search'])->name('profiles.search');
+    Route::resource('profiles', ProfileController::class);
 });
 
 

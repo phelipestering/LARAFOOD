@@ -251,6 +251,11 @@ return [
             'url'         => 'admin/plans',
             'icon'        => 'far fa-fw fa-file',
         ],
+        [
+            'text'        => 'Perfis',
+            'url'         => 'admin/profiles',
+            'icon'        => 'fa-solid fa-id-badge',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

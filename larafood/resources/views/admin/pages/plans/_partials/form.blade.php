@@ -14,5 +14,3 @@
     <label>Descricao:</label>
     <input type="text" name="description" class="form-control" placeholder="Descricao:" value="{{ $plan->description ?? old('description') }}">
 </div>
-
-
