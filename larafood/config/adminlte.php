@@ -256,6 +256,11 @@ return [
             'url'         => 'admin/profiles',
             'icon'        => 'fa-solid fa-id-badge',
         ],
+        [
+            'text'        => 'Permissoes',
+            'url'         => 'admin/permissions',
+            'icon'        => 'fa-solid fa-lock',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
