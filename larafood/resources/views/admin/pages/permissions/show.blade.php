@@ -3,10 +3,10 @@
 @section('title', "Descricao Permissao {$permission->name}")
 
 @section('content_header')
-    <h>Descricao de {{ $permission->name }}</b></h1>
-@stop
+<h>Descricao de {{ $permission->name }}</b></h1>
+    @stop
 
-@section('content')
+    @section('content')
     <div class="card">
         <div class="card-body">
 
@@ -26,16 +26,16 @@
 
             @include('admin.pages.plans.includes.errors')
 
-        <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">DELETAR a - {{ $permission->name }}</button>
-        </form>
+            <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">DELETAR a - {{ $permission->name }}</button>
+            </form>
         </div>
     </div>
-@stop
+    @stop
 
-@section('css')
+    @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <script src="https://kit.fontawesome.com/fee8180858.js" crossorigin="anonymous"></script>
-@stop
+    @stop

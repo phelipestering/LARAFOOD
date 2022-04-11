@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
 use App\Http\Controllers\Admin\ACL\PermissionController;
+use App\Http\Controllers\Admin\ACL\PermissionProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,4 +59,10 @@ Route::prefix('admin')->group(function(){
      */
     Route::any('permissions/search', [PermissionController::class, 'search'])->name('permissions.search');
     Route::resource('permissions', PermissionController::class);
+
+    /**
+     * Permissions x profiles
+     */
+    Route::get('profiles/{id}/permissions', [PermissionProfileController::class, 'permissions'])->name('profiles.permissions');
+
 });

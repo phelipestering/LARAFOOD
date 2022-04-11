@@ -36,11 +36,13 @@
                             <td>
                                 {{ $profile->name }}
                             </td>
+                            {{-- buttons  --}}
 
                             <td style="width=10px;">
                                 {{-- <a href="{{ route('details.plan.index', $plan->id) }}" class="btn btn-primary">Detalhes</a> --}}
                                 <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info">Editar</a>
                                 <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning">Ver</a>
+                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-warning"><i class="fa-solid fa-lock"></i></a>
                             </td>
                         </tr>
                     @endforeach

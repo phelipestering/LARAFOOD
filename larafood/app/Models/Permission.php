@@ -11,4 +11,12 @@ class Permission extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'description'];
+
+    /**
+     * get profile
+     */
+    public function getProfile()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
 }
